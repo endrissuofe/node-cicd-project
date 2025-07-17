@@ -16,7 +16,11 @@
   "devDependencies": {
     "mocha": "^10.0.0",
     "supertest": "^6.3.3",
-    "chai": "^5.0.0",
-    "eslint": "^8.0.0"
+    "chai": "^4.3.7",
+    "eslint": "8.57.1",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.25.2",
+    "eslint-plugin-mocha": "^10.0.0",
+    "eslint-plugin-chai-expect": "^3.0.0"
   }
 }

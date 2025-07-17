@@ -1,33 +1,26 @@
+const { expect } = require('chai');
 const request = require('supertest');
-const app = require('./index'); // CommonJS import for Express app
+const app = require('./index');
 
-// Dynamic import for Chai
-let expect;
-
-(async () => {
-  const chai = await import('chai');
-  expect = chai.expect;
-})();
-
-// Unit Test Example
-describe('Unit Tests', () => {
-  it('should return true for a simple check', () => {
-    const simpleCheck = () => true;
-    expect(simpleCheck()).to.be.true;
+describe('CI/CD Demo Tests', function() {
+  describe('Unit Tests', function() {
+    it('should return true for a simple check', function() {
+      const simpleCheck = () => true;
+      expect(simpleCheck()).to.be.true;
+    });
   });
-});
 
-// Integration Test Example
-describe('Integration Tests - Express App', () => {
-  it('should return 200 and correct response body for GET /', (done) => {
-    request(app)
-      .get('/')
-      .expect(200)
-      .expect('Content-Type', /html/)
-      .end((err, res) => {
-        if (err) return done(err);
-        expect(res.text).to.include('<h1>Welcome to My CI/CD Demo</h1>');
-        done();
-      });
+  describe('Integration Tests - Express App', function() {
+    it('should return 200 and correct response body for GET /', function(done) {
+      request(app)
+        .get('/')
+        .expect(200)
+        .expect('Content-Type', /html/)
+        .end((err, res) => {
+          if (err) return done(err);
+          expect(res.text).to.include('<h1>Welcome to My CI/CD Demo</h1>');
+          done();
+        });
+    });
   });
 });
