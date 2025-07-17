@@ -1,33 +1,22 @@
 {
   "name": "cicd-project",
   "version": "1.0.0",
-  "description": "This README documents the process of setting up a simple Node.js web application and implementing Continuous Integration and Continuous Deployment (CI/CD) using GitHub Actions. The project demonstrates how to automate testing and ensure code quality across multiple Node.js versions.",
+  "description": "A simple Node.js application with CI/CD using GitHub Actions",
   "main": "index.js",
   "scripts": {
     "start": "node index.js",
-    "test": "mocha"
-    "lint": "elint ."
+    "test": "mocha",
+    "lint": "eslint ."
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/endrissuofe/node-cicd-project.git"
-  },
-  "keywords": [],
-  "author": "",
+  "author": "Endris",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/endrissuofe/node-cicd-project/issues"
-  },
-  "homepage": "https://github.com/endrissuofe/node-cicd-project#readme",
   "dependencies": {
     "express": "^4.17.1"
   },
   "devDependencies": {
-    "@eslint/js": "^9.31.0",
-    "chai": "^4.3.7",
-    "eslint": "^9.31.0",
-    "globals": "^16.3.0",
     "mocha": "^10.0.0",
-    "supertest": "^6.3.3"
+    "supertest": "^6.3.3",
+    "chai": "^5.0.0",
+    "eslint": "^8.0.0"
   }
 }

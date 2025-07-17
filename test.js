@@ -1,6 +1,13 @@
-const { expect } = require('chai');
 const request = require('supertest');
-const app = require('./index');
+const app = require('./index'); // CommonJS import for Express app
+
+// Dynamic import for Chai
+let expect;
+
+(async () => {
+  const chai = await import('chai');
+  expect = chai.expect;
+})();
 
 // Unit Test Example
 describe('Unit Tests', () => {
