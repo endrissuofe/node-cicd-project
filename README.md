@@ -92,9 +92,9 @@ To complete this project, the following were required:
      npm test
      ```
 
-   **Evidence**:
-   - Screenshot of the running application in the browser saved as `img/local-app-running.png`.
-   - Screenshot of the terminal showing successful test results saved as `img/test-results.png`.
+   **Screenshots**:
+> ![Local App Running](img/local-app-running.png)
+> ![Test Results](img/test-results.png).
 
 ### 3. Setting Up GitHub Actions Workflow
 
@@ -126,6 +126,9 @@ To complete this project, the following were required:
      ```
    - This workflow triggers on `push` or `pull_request` events to the `main` branch, tests the application across Node.js versions 14.x, 16.x, and 18.x, and runs the test suite.
 
+   **screenshots**:
+   > ![Workflow Configuration](img/code.png)
+
 2. **Pushed Changes to GitHub**:
    - Committed and pushed the code to the `main` branch:
      ```bash
@@ -134,22 +137,57 @@ To complete this project, the following were required:
      git push origin main
      ```
 
+   **screenshots**:
+   > ![Workflow Success](img/push.png)
+  
+### 4. Setting Up Deployment Workflow
+
+1. **Configured Heroku**:
+   - Created a Heroku app and added the API key and app name to GitHub Secrets (`HEROKU_API_KEY` and `HEROKU_APP_NAME`).
+   - Created a `Procfile` (see `Procfile` artifact).
+   - Created `.github/workflows/deploy.yml` (see `deploy.yml` artifact) to deploy to Heroku on pushes to `main`.
+
+2. **Pushed Deployment Changes**:
+   - Committed and pushed:
+     ```bash
+     git add .github/workflows/deploy.yml Procfile
+     git commit -m "Add Heroku deployment workflow and Procfile"
+     git push origin main
+     ```
+
    **Evidence**:
-   - Screenshot of the GitHub Actions workflow running successfully saved as `img/workflow-success.png`.
+   - Screenshot of the Heroku dashboard or GitHub Actions deploy workflow run saved as `img/heroku-deploy-success.png`.
 
-### 4. Verifying CI/CD Pipeline
+### 5. Experimenting and Learning
 
-1. **Checked Workflow Execution**:
-   - Navigated to the "Actions" tab in the GitHub repository to verify that the workflow ran successfully for all Node.js versions.
-   - Confirmed that tests passed in the workflow logs.
+1. **Modified Workflows**:
+   - Added a failing test to `test.js` to observe CI failure:
+     ```bash
+     git add test.js
+     git commit -m "Add failing test to experiment with CI"
+     git push origin main
+     ```
+   - Updated `ci.yml` to include Node.js 20.x in the matrix:
+     ```bash
+     git add .github/workflows/ci.yml
+     git commit -m "Add Node.js 20.x to CI matrix"
+     git push origin main
+     ```
 
-2. **Experimented with Changes**:
-   - Made a small change to `index.js` (e.g., updated the HTML content) and pushed it to trigger the workflow again.
-   - Verified that the CI pipeline caught any errors (e.g., intentionally broke a test to see the workflow fail).
+2. **Added Different Test Types**:
+   - Updated `test.js` to include additional unit tests (see `test.js` artifact).
+   - Ran tests locally and pushed changes:
+     ```bash
+     npm test
+     git add test.js
+     git commit -m "Add additional unit test"
+     git push origin main
+     ```
 
    **Evidence**:
-   - Screenshot of the GitHub Actions workflow logs showing a failed test (if applicable) saved as `img/workflow-failure.png`.
-   - Screenshot of the updated webpage after a successful push saved as `img/updated-page.png`.
+   - Screenshot of the failed CI workflow run saved as `img/ci-workflow-failure.png`.
+   - Screenshot of the updated CI workflow with Node.js 20.x saved as `img/ci-matrix-updated.png`.
+   - Screenshot of updated test results saved as `img/test-results-additional.png`.
 
 ## Project Structure
 
@@ -157,39 +195,48 @@ To complete this project, the following were required:
 node-cicd-project/
 ├── .github/
 │   └── workflows/
-│       └── ci.yml
+│       ├── ci.yml
+│       └── deploy.yml
 ├── img/
 │   ├── repository-creation.png
 │   ├── local-app-running.png
 │   ├── test-results.png
-│   ├── workflow-success.png
-│   ├── workflow-failure.png
-│   └── updated-page.png
+│   ├── test-results-updated.png
+│   ├── ci-workflow-updated.png
+│   ├── ci-workflow-failure.png
+│   ├── ci-matrix-updated.png
+│   ├── heroku-deploy-success.png
+│   ├── test-results-additional.png
 ├── index.js
 ├── test.js
 ├── package.json
+├── Procfile
 ├── node_modules/
 └── README.md
 ```
 
 ## Lessons Learned
 
-- **CI/CD Benefits**: Automating testing with GitHub Actions ensures code quality and consistency across different environments.
-- **GitHub Actions**: Learned how to create workflows, define triggers, and use matrix strategies to test across multiple Node.js versions.
-- **Practical Application**: Setting up a simple Node.js application and integrating it with a CI pipeline provided hands-on experience with real-world development practices.
+- **Enhanced Testing**: Added unit and integration tests using Mocha, Chai, and Supertest to ensure code reliability.
+- **CI/CD Automation**: Updated the CI workflow to include linting and tested across multiple Node.js versions.
+- **Deployment**: Successfully deployed the app to Heroku using a dedicated GitHub Actions workflow.
+- **Experimentation**: Learned how workflow changes (e.g., failing tests, new Node.js versions) affect the CI/CD process.
 
 ## Next Steps
 
-- Add deployment steps to the GitHub Actions workflow (e.g., deploy to a hosting service like Heroku or Vercel).
-- Expand the application with additional features and more comprehensive tests.
-- Explore advanced GitHub Actions features, such as caching dependencies or using custom actions.
+- Add more complex tests (e.g., testing additional endpoints or edge cases).
+- Explore other deployment platforms like AWS or Vercel.
+- Implement caching in GitHub Actions to speed up workflows.
 
 ## Evidence Screenshots
 
 All screenshots are stored in the `img/` folder:
 - `repository-creation.png`: GitHub repository creation.
 - `local-app-running.png`: Application running locally in the browser.
-- `test-results.png`: Terminal output of successful tests.
-- `workflow-success.png`: GitHub Actions workflow success.
-- `workflow-failure.png`: GitHub Actions workflow failure (if applicable).
-- `updated-page.png`: Updated webpage after changes.
+- `test-results.png`: Initial test results.
+- `test-results-updated.png`: Updated test results with unit and integration tests.
+- `ci-workflow-updated.png`: CI workflow with linting and tests.
+- `ci-workflow-failure.png`: CI workflow failure from experiment.
+- `ci-matrix-updated.png`: CI workflow with updated Node.js versions.
+- `heroku-deploy-success.png`: Heroku deployment success.
+- `test-results-additional.png`: Additional test results.
