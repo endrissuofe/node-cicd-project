@@ -1,0 +1,15 @@
+{
+  "name": "cicd-yaml-project",
+  "version": "1.0.0",
+  "description": "This project is part of the **GitHub Actions and CI/CD Course**, focusing on automating a Node.js application’s build, test, and linting processes using GitHub Actions. The goal is to create a simple Express.js application, set up a Continuous Integration (CI) pipeline with a build matrix, environment variables, and conditional execution, and document the process with code and screenshots. The project follows **Lesson 3: Workflow Syntax and Structure** and **Module 3: Implementing Continuous Integration** from the course guide.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

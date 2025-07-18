@@ -11,16 +11,25 @@
   "author": "Endris",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.21.2"
   },
   "devDependencies": {
-    "mocha": "^10.0.0",
-    "supertest": "^6.3.3",
     "chai": "^4.3.7",
     "eslint": "8.57.1",
     "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-chai-expect": "^3.0.0",
     "eslint-plugin-import": "^2.25.2",
     "eslint-plugin-mocha": "^10.0.0",
-    "eslint-plugin-chai-expect": "^3.0.0"
-  }
+    "mocha": "^10.0.0",
+    "supertest": "^6.3.3"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/endrissuofe/node-cicd-project.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/endrissuofe/node-cicd-project/issues"
+  },
+  "homepage": "https://github.com/endrissuofe/node-cicd-project#readme"
 }
